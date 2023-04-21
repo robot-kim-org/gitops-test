@@ -2,7 +2,7 @@ apiVersion: humanitec.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    app.humanitec.io/deployment: 1757ed283e7a9f35
+    app.humanitec.io/deployment: 1757ed896604a9f9
   creationTimestamp: null
   labels:
     app.humanitec.io/app-id: operator-test-deploy

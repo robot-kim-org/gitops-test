@@ -2,9 +2,9 @@ apiVersion: humanitec.io/v1alpha1
 kind: Resource
 metadata:
   annotations:
-    app.humanitec.io/definition-id: default-humanitec-logging
-    app.humanitec.io/deployment: 1757ed283e7a9f35
-    app.humanitec.io/matching-criteria-id: a88b14f06573349d
+    app.humanitec.io/definition-id: logging-dummy
+    app.humanitec.io/deployment: 1757ed896604a9f9
+    app.humanitec.io/matching-criteria-id: 3e03fdca70ed3467
   creationTimestamp: null
   labels:
     app.humanitec.io/app-id: operator-test-deploy
@@ -12,17 +12,13 @@ metadata:
 spec:
   configMapName: resource-configmap-6b77166c995a02d2b6a8d88fee9722d4b396b05c
   dependsOn: []
-  driver: https://drivers.humanitec.io/logging-elastic
+  driver: builtin://template
   driverInputs:
     driver:
-      secrets:
-        elasticsearch_url: orgs/humanitec/resources/defs/default-humanitec-logging/driver/.elasticsearch_url
-      values:
-        log_agent: fluent-bit
-        log_agent_output: http
-        log_agent_output_host: dev-logs.humanitec.io
+      secrets: {}
+      values: {}
     resource: {}
-  driverType: humanitec/logging-elastic
+  driverType: humanitec/template
   guresid: 6b77166c995a02d2b6a8d88fee9722d4b396b05c
   id: logging
   secretName: resource-secret-6b77166c995a02d2b6a8d88fee9722d4b396b05c
