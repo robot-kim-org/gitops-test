@@ -1,0 +1,31 @@
+apiVersion: humanitec.io/v1alpha1
+kind: Resource
+metadata:
+  annotations:
+    app.humanitec.io/definition-id: default-humanitec-base-env
+    app.humanitec.io/deployment: 1757ec5c0c86cd02
+    app.humanitec.io/matching-criteria-id: ea558ffe01f4037a
+  creationTimestamp: null
+  labels:
+    app.humanitec.io/app-id: operator-test-deploy
+  name: resource-f63538be8cf592077e158e640a1c767726ff0c37
+spec:
+  configMapName: resource-configmap-f63538be8cf592077e158e640a1c767726ff0c37
+  dependsOn: []
+  driver: builtin://template
+  driverInputs:
+    driver:
+      secrets: {}
+      values: {}
+    resource:
+      id: /orgs/nils-org2/apps/operator-test-deploy/envs/development
+  driverType: humanitec/template
+  guresid: f63538be8cf592077e158e640a1c767726ff0c37
+  id: base-env
+  secretName: resource-secret-f63538be8cf592077e158e640a1c767726ff0c37
+  secretStoreConfigRef:
+    name: test-vault-instance
+    namespace: ""
+  type: base-env
+  workloadPatchName: resource-patch-f63538be8cf592077e158e640a1c767726ff0c37
+status: {}

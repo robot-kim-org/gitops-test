@@ -1,0 +1,75 @@
+apiVersion: humanitec.io/v1alpha1
+kind: WorkloadTemplate
+metadata:
+  annotations:
+    app.humanitec.io/deployment: 1757ec5c0c86cd02
+  creationTimestamp: null
+  labels:
+    app.humanitec.io/app-id: operator-test-deploy
+  name: workloadtemplate-busybox
+spec:
+  manifests:
+  - apiVersion: v1
+    data: {}
+    kind: ConfigMap
+    metadata:
+      labels:
+        app.kubernetes.io/instance: busybox
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: busybox
+        helm.sh/chart: default-module-1.16.0
+      name: busybox-configmap-busybox-logger
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        app.kubernetes.io/instance: busybox
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: busybox
+        helm.sh/chart: default-module-1.16.0
+      name: busybox
+    spec:
+      selector:
+        matchLabels:
+          app.kubernetes.io/instance: busybox
+          app.kubernetes.io/name: busybox
+      template:
+        metadata:
+          annotations:
+            checksum/config: 9a5357c11e8c6097d737c88fc109ab723b4640e3149cbc3d7973d9f8da457d98
+          labels:
+            app.kubernetes.io/instance: busybox
+            app.kubernetes.io/name: busybox
+        spec:
+          containers:
+          - envFrom:
+            - configMapRef:
+                name: busybox-configmap-busybox-logger
+            image: registry.humanitec.io/qa-public/busybox-logger:1.1.0
+            name: busybox-logger
+            resources:
+              limits:
+                cpu: "0.250"
+                memory: 256Mi
+              requests:
+                cpu: "0.025"
+                memory: 64Mi
+          imagePullSecrets: []
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app.kubernetes.io/instance: busybox
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: busybox
+        helm.sh/chart: default-module-1.16.0
+      name: busybox
+    spec:
+      ports:
+      - name: port-default
+        port: 8080
+        protocol: TCP
+      selector:
+        app.kubernetes.io/instance: busybox
+        app.kubernetes.io/name: busybox
+      type: ClusterIP
