@@ -2,7 +2,7 @@ apiVersion: humanitec.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    app.humanitec.io/deployment: 1757ec5c0c86cd02
+    app.humanitec.io/deployment: 1757ed2110ca5e22
   creationTimestamp: null
   labels:
     app.humanitec.io/app-id: operator-test-deploy
@@ -16,4 +16,8 @@ spec:
     - resource-59ffd31db38da2025149471c090da1fc67a3ac3a
     name: busybox
     templateName: workloadtemplate-busybox
+  - condition:
+      success: deploy
+      when: before
+    name: shared-99370dde0f3f4bb94f10b1c4d86e5b581a082c8b
 status: {}
