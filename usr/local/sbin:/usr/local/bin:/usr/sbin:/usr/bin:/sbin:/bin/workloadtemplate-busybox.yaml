@@ -2,7 +2,7 @@ apiVersion: humanitec.io/v1alpha1
 kind: WorkloadTemplate
 metadata:
   annotations:
-    app.humanitec.io/deployment: 1757ed2110ca5e22
+    app.humanitec.io/deployment: 1757ed283e7a9f35
   creationTimestamp: null
   labels:
     app.humanitec.io/app-id: operator-test-deploy
@@ -10,7 +10,8 @@ metadata:
 spec:
   manifests:
   - apiVersion: v1
-    data: {}
+    data:
+      someenvvar: test
     kind: ConfigMap
     metadata:
       labels:
@@ -36,7 +37,7 @@ spec:
       template:
         metadata:
           annotations:
-            checksum/config: 9a5357c11e8c6097d737c88fc109ab723b4640e3149cbc3d7973d9f8da457d98
+            checksum/config: 6d8e50e1139f6ca19a81617e51945474b83398679f4e6cbd3cdd100b9222e474
           labels:
             app.kubernetes.io/instance: busybox
             app.kubernetes.io/name: busybox

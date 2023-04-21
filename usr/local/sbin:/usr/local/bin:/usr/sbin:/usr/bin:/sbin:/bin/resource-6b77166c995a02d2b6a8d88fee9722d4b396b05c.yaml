@@ -3,7 +3,7 @@ kind: Resource
 metadata:
   annotations:
     app.humanitec.io/definition-id: default-humanitec-logging
-    app.humanitec.io/deployment: 1757ed2110ca5e22
+    app.humanitec.io/deployment: 1757ed283e7a9f35
     app.humanitec.io/matching-criteria-id: a88b14f06573349d
   creationTimestamp: null
   labels:
