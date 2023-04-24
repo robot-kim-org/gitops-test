@@ -3,11 +3,13 @@ kind: Resource
 metadata:
   annotations:
     app.humanitec.io/definition-id: default-humanitec-workload-res
-    app.humanitec.io/deployment: 1757ed896604a9f9
+    app.humanitec.io/deployment: 1758e9a0958d47a7
     app.humanitec.io/matching-criteria-id: 68dabd122d4a7d42
   creationTimestamp: null
   labels:
     app.humanitec.io/app-id: operator-test-deploy
+    app.humanitec.io/env-id: development
+    app.humanitec.io/org-id: nils-org2
   name: resource-59ffd31db38da2025149471c090da1fc67a3ac3a
 spec:
   configMapName: resource-configmap-59ffd31db38da2025149471c090da1fc67a3ac3a

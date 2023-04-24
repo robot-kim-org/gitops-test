@@ -2,10 +2,12 @@ apiVersion: humanitec.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    app.humanitec.io/deployment: 1757ed896604a9f9
+    app.humanitec.io/deployment: 1758e9a0958d47a7
   creationTimestamp: null
   labels:
     app.humanitec.io/app-id: operator-test-deploy
+    app.humanitec.io/env-id: development
+    app.humanitec.io/org-id: nils-org2
   name: application-operator-test-deploy
 spec:
   workloads:
@@ -16,8 +18,4 @@ spec:
     - resource-59ffd31db38da2025149471c090da1fc67a3ac3a
     name: busybox
     templateName: workloadtemplate-busybox
-  - condition:
-      success: deploy
-      when: before
-    name: shared-99370dde0f3f4bb94f10b1c4d86e5b581a082c8b
 status: {}

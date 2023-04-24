@@ -2,10 +2,12 @@ apiVersion: humanitec.io/v1alpha1
 kind: WorkloadTemplate
 metadata:
   annotations:
-    app.humanitec.io/deployment: 1757ed896604a9f9
+    app.humanitec.io/deployment: 1758e9a0958d47a7
   creationTimestamp: null
   labels:
     app.humanitec.io/app-id: operator-test-deploy
+    app.humanitec.io/env-id: development
+    app.humanitec.io/org-id: nils-org2
   name: workloadtemplate-busybox
 spec:
   manifests:
@@ -18,7 +20,7 @@ spec:
         app.kubernetes.io/instance: busybox
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: busybox
-        helm.sh/chart: default-module-1.16.0
+        helm.sh/chart: default-module-1.16.1
       name: busybox-configmap-busybox-logger
   - apiVersion: apps/v1
     kind: Deployment
@@ -27,7 +29,7 @@ spec:
         app.kubernetes.io/instance: busybox
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: busybox
-        helm.sh/chart: default-module-1.16.0
+        helm.sh/chart: default-module-1.16.1
       name: busybox
     spec:
       selector:
@@ -37,7 +39,7 @@ spec:
       template:
         metadata:
           annotations:
-            checksum/config: 6d8e50e1139f6ca19a81617e51945474b83398679f4e6cbd3cdd100b9222e474
+            checksum/config: ccf704bbc1258f79480de673b53421373ff779e84667c832a915d0919ab0f21f
           labels:
             app.kubernetes.io/instance: busybox
             app.kubernetes.io/name: busybox
@@ -55,7 +57,7 @@ spec:
               requests:
                 cpu: "0.025"
                 memory: 64Mi
-          imagePullSecrets: []
+          imagePullSecrets: {}
   - apiVersion: v1
     kind: Service
     metadata:
@@ -63,7 +65,7 @@ spec:
         app.kubernetes.io/instance: busybox
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: busybox
-        helm.sh/chart: default-module-1.16.0
+        helm.sh/chart: default-module-1.16.1
       name: busybox
     spec:
       ports:
