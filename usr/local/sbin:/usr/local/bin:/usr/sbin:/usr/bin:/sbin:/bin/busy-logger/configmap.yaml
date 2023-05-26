@@ -1,0 +1,13 @@
+---
+# Source: default-module/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: busy-logger-configmap-busybox-logger
+  labels:    
+    helm.sh/chart: default-module-1.16.2
+    
+    app.kubernetes.io/name: "busy-logger"
+    app.kubernetes.io/instance: "busy-logger"
+    app.kubernetes.io/managed-by: "Helm"
+data: {}
